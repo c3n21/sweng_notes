@@ -1,0 +1,228 @@
+* Processo di produzione del software
+** Riconoscimento che:
+   - produrre software non è solo scrivere codice
+   - bisogna risolvere problema di comunicazione
+   - bisogna essere rigorosi
+     `Formal methods significantly reduce design errors, or eliminate them early` 
+     [...] (prima slide)
+
+* Modellare ciclo di vita del sw
+** Identificare vari passi e attività necessarie
+   - precedenze temporali
+   - soggetti diversi
+** Porsi due domande
+   - cosa devo fare adesso?
+   - fino a quando?
+
+* Studio di fattibilità
+** Definizione preliminare del problema
+   - possibile mercato e concorrenti
+** Studio di diversi scenari di realizzazione
+   - scelte architetturali e hardware necessario
+   - sviluppo in proprio, subappalto
+** Stima dei costi, tempi di sviluppo, risorse necessarie e benefici delle varie soluzioni
+** Spesso difficile fare una analisi approfondita
+   - spesso viene commissionato all'esterno
+   - si hanno limiti di tempo stringenti
+** Possibili output: un documento spesso in linguaggio naturale
+
+* Analisi e specifica dei requisiti
+  - Requisiti
+    ciò che pensa l'utente
+  - Specifica
+    Ciò che ho capito dell'esigenze dell'utente
+
+** Comprendere il dominio applicativo
+   (creare un vocabolario comune)
+** Identificare gli stakeholders
+** Quali sono le funzionalità richieste?
+   - `cosa` deve fare il sistema?
+     Specifica operazionale (`modello operazionale`) che fa vedere come il sistema interagisce con l'ambiente.
+     C'è il _rischio_ di specificare anche il `come`
+   -- non interessa il `come`
+** È il punto di vista dell'utente, non gli interessa il progetto o l'implementazione
+** Quali sono le altre qualità richieste?
+
+* Requirements analysis and specifications
+  POSSIBILI OUTPUT:
+** Documento di specifica
+   - documento contrattuale approvato dal committente
+   - base per il lavoro di design e verifica
+   - importanza di avere documento formale
+** Manuale utente o maschere di interazione
+   - vista esterna per eccellenza
+** Piano dei test di sistema
+   - collaudi che certificano la correttezza
+     `The value of models depends on the view taken, but none is best for all purposes`
+     Davis' Law (L4)
+
+* Progettazione (Design)
+** Come le specifiche precedentemente trovate possono essere realizzate in maniera opportuna?
+** Definizione dell'architettura del sistema
+   - Scelta di una architettura software di riferimento
+   - Scomposizione in moduli o oggetti
+   - Identificazione di pattertn
+** POSSIBILI OUTPUT
+   - UML ed altri
+   -  [...] guardare slide
+
+* Programmazione e test di unità
+** Le `blackbox` definite al punto precedente vengono realizzate
+** I singoli moduli vengono testati indipendentemente
+*** framework per il test
+    - moduli stub (fittizi)
+    - moduli driver (guida)
+
+
+* Integrazione e test di sistema
+** Vengono uniti i vari componenti
+** Test di integrazione
+   Sottoinsiemi dell'applicazione: vengono sostituiti mano a mano i moduli di testing con i moduli reali
+   - top-down
+   - botton-up
+
+* Manutenzione
+  - correttiva
+  - adattativa
+  - perfettiva
+
+* Altre attività
+** Documentazione
+   - può essere vista come attività trasversale
+   - nella pratica è spesso un'attività a posteriori
+** Verifica e controllo qualità
+   - QA: quality assurance
+** Gestione del processo
+   - gestione incentivi, responsabilità, eccezioni
+** Gestione configurazioni
+   - può essere vista come relazioni inter-progettuali
+
+* Modelli di ciclo di vita del software
+** Modello a cascata
+   una famiglia di processi
+   `Requisiti -> progetto -> codifica -> testing -> prodotto`
+   Viene chiamato anche document based (perché ogni semilavorato deve produrre un documento).
+*** Forza una progressione lineare da una fase alla successiva
+*** Le varie fasi comunicano attraverso semilavorati
+    - permette quindi una separazione dei compiti
+*** È possibile fare una pianificazione dei tempi e monitoring dello stato di avanzamento
+    - ma a senso unico
+
+*** Manutazione
+**** È una fase prevista?
+    - È considerata un'eccezione, senz'altro non pianificata
+**** È possibile farla nel modello a cascata?
+     Non si pu`o tornare indietro`
+     - niente modifiche a specifiche, codice, documentazione
+
+*** Problemi
+    - rigidità
+    - congelamento sotto prodotti
+    -- specifiche e stime fatte solo nelle prime fasi
+    - monoliticità
+    -- tutta la documentazione è orientata ad un singolo rilascio
+    -- manutenzione fatta solo sul codice
+
+** Modello a V
+   È sempre il modello a cascata, l'unica differenza è che spalma il testing durante tutto il processo.
+   Ogni volta che si produce qualcosa va fatto vedere al cliente (tutte le freccie grigie si ricollegano alla nuvoletta che è la specifica)
+
+** Varianti del processo a cascata
+   Come modello a cascata ma con singola retroazione
+
+** Modello di ciclo di vita a fontana
+   Henderso-Sellers 1993
+   - con `da capo`
+   - imprevedibile la profondità di ogni zampillo
+   - se guardiamo però in cima abbiamo che siamo arrivati a una versione `incrementale`
+
+* Tipi di modelli
+** Modello prescrittivo
+   descrivono quello che si dovrebbe fare
+** Modello descrittivo
+   non è detto che funzionino ma servono per inquadrare certi concetti 
+   (tipo modello a cascata, ovvero non direttamente utilizzabile ma descrive le varie fasi)
+
+* Modelli iterativi vs incrementali
+** Si parla di `incrementale` quando nelle `iterazioni` viene inclusa la consegna
+
+   Ad esempio si può parlare di:
+*** implementazione `iterativa`
+    Stressa la modularizzazione e l'identificazione di sottosistemi e si ripetono fasi di coding ed integrazione
+*** Sviluppo `incrementale`
+    - viene esteso a tutte le fasi (specifiche comprese)
+      [...] guardare slide
+
+
+* Modelli prototipali
+  - Prototipo usa e getta (`throw away`)
+  - Pubblici o esterni
+  -- Per capire meglio i requisiti e/o far compiere scelte all'utente interfacce 
+  - privati o interni
+  -- per esplorare nuovi strumenti, linguaggi, diverse scelte per prblema difficili progetti pilota, testbed (nel mondo _AGILE_ si dice `spike`)
+
+  `Prototyping (significantly) reduces requirements and design errors, especially for user interfaces`
+  Boehm's Law (L3)
+
+  È un modello iterativo perché il `prototipo` spesso non è progettato o sviluppato bene (quindi non è un punto di partenza per sviluppare versioni successive);
+  per cui questo aspetto non si sposa perfettamente con la definizione `iterativo` e `incrementale` 
+
+* "Problemi"  con modelli incrementali
+  -  From Waterfall to Iterative development - A challenging transition for project managers (paper)
+** Viene complicato il lavoro di planning
+   - lo stato del processo è meno visibile
+   - bisogna pianificare tutte le iterazioni
+** Si riconosce che bisogna rimettere mano a ciò che si è fatto
+   - il sistema può non convergere (infinite iterazioni)
+** Cosa è un'iterazione, quanto dura?
+   - rischio di voler mettere troppo nella prima iterazione
+   - rischio di overhead dovuto a troppe iterazioni
+   - rischio di [...] (pag. 45)
+
+* Pinball Life-cycle
+  Ambler 1994
+  Modello a "flipper", ovvero non ho un vero e proprio controllo sul progetto 
+  - indefinito
+  - qualunque passo è possibile
+  - non vengono imposti vincoli temporali
+  - non misurabile
+
+* Modelli trasformazionali
+  Contrario di Pinball Life-cycle (esatto opposto).
+  - Raffinamenti di rappresentazioni formali del problema.
+  -- ad ogni passo vengono specializzate, ottimizzate, rese più concrete attraverso trasformazioni automatiche o comunque controllate
+  - A partire da specifiche formali si ottiene un prototipo
+  -- differisce dal prodotto finale per efficienza e completezza
+  -- passi di trasformazioni (formalmente dimostrabili come corretti) portano ad avere la versione finale
+
+  Questo modello è utilizzato in ambiti specifici tipo nella progettazione dei processori.
+  Clean Room ideato da IBM
+
+* Modello a spirale
+  Boehm 1988
+
+  -   È più un meta-modello in cui si possono inquadrare altri modelli
+  - guidato dall'analisi dei `rischi`  (prima contemplato solo nello studio di fattibilità)
+** Fasi
+*** Determinazione obiettivi, alternative e vincoli (nel prossimo giro di spirale)
+*** Valutazione alternative, identificazione rischi
+*** Sviluppo e verifica
+*** Pianificazione fase successiva
+
+* Modello Spirale Win-Win
+  Win-Win (entrambi "pensano" di aver vinto, soddisfatti)
+  Boem 1998
+  - evidenzia le comunicazioni con i clienti e che non sono di tipo "pacifico" ma necessitano contrattazioni e negoziazione
+
+* Modello COTS (Component Off The Shelf)
+  RAD (Rapid Application Development), Programmazione visuale
+  - partire dalla disponibilità interna o sul mercato di moduli preesistenti e creare il sistema a partire da quelli mediante integrazione
+  - apre nuovi problemi (tematiche) quali:
+  -- classificazione dei moduli
+  -- retrieval dei moduli (ed adattarli)
+
+* Metologie Agili (eXtreme Programming)
+  Focus sugli individui e le interazioni invece che dei processi
+
+* Domanda
+  - Se il dominio di un progetto è sufficiente piccolo è possibile che raggiunga una fase finale in cui non è più necessario che si facciano evolutive.

@@ -1,0 +1,187 @@
+* Metodologie agili
+  eXtreme Programming quello che verrà approfondito
+
+  Libro consigliato: Agile! `Bertrand Meyer` (autore di Eifell)
+
+  - non è solo un libro su Agile
+  - analizza in maniera critica molti concetti metodologici su come si fa a parlare di un processo
+
+  in cui vengono riassunti dei concetti comuni di tutte le metodologie agili:
+
+** Lean Software (Reduce waste)
+   Un aspetto chiave delle metodologie agili è anche la `fidelizzazione` dello sviluppatore,
+   ovvero fargli provare di usare l'approccio Agile.
+   - nasce da Lean Manufactoring della Toyota
+     Quello che "si perde" durante la produzione, nel caso del software sono caratteristiche 
+     non servono al cliente.
+
+** Kanban (Minimize Work In Progress)
+   Per ogni persona non voglio che faccia più di una cosa (togliere l'overhead di `context switching`).
+   Perché quando ho un lavoro "WIP" comincio a fare qualcos'altro?
+   Perché sono bloccato nel task che stavo svolgendo (mi manca un componente o informazione).
+
+** Scrum (`Freeze Requirements` during short `Iterations`)
+   - `Freeze Requirements` significa che non posso cambiare i requisiti durante lo sviluppo (non è vero, ma è un modo di dire che non si può cambiare il requisito durante lo sviluppo)
+   - `Iterations` significa che si lavora a piccoli step (2-4 settimane) e si fa un rilascio (anche se non è completo) e si fa un rilascio (anche se non è completo)
+   - in questo modo si ha un feedback dal cliente
+   - si può anche
+
+** Crystal (`Osmotic Communication`)
+   Il team è un'entità con delle conoscenze condivisa che avviene in maniera trasparenze (lavoro in coppia o anche comunicazione offline).
+   Si assume che il team abbia esasperato le conoscenze interne tale per cui non c'è bisogno di documentare.
+   Questo può funzionare solo in team piccoli.
+
+** eXtreme Programming (`Increment then simplify` and TDD)
+   - `Increment`: implemento la funzionalità
+   - `Simplify`: miglioro le qualità interne come verificabilità, manutenibilità, ecc. mantenendo le stesse features.
+
+*** Test Drive Development
+    TDD è una tecnica di progettazione che guida verso il design più semplice.
+    Vari step:
+    `Red -> Green -> Refactor`
+
+    Quando scrivo un test sto facendo:
+    - scrivendo una specifica che può essere eseguita
+    - posso capire come vorrei venisse messa a disposizione una funzionalità esposta tramite il codice
+
+    Nella fase `Red` si scrive il test che fallisce e capisco al contempo (e scrivo) la specifica.
+
+    Nella fase `Green` si scrive il codice che fa passare il test.
+
+    Nella fase `Refactor` si riscrive il codice per migliorare la qualità interna.
+
+    È diverso dal modello prototipale perché il prototipo è throw away, mentre in questo caso io voglio
+    incrementare la mia soluzione per migliorarla.
+
+    `TDD = test-first + baby steps`
+
+    - [RED] Write a failing test
+    - [GREEN] Write the simplest code to make the test pass
+    - [REFACTOR] Refactor the code to remove duplication and simplify design
+
+    Repeat every 2-10 minutes
+    Questo vuol dire che il mio test o la user story che su cui sto lavorando è molto più
+    complessa di quanto mi aspettassi.
+
+*** Variabili in gioco
+**** Portata
+     La quantità di funzionalità che si vogliono implementare.
+     Delicata perché mutevole.
+**** Tempo
+     - il tempo che si può dedicare al progetto
+**** Qualità
+     la qualità del progetto che si deve ottenere (deve essere sempre 100%, ovvero corretto e scritto molto bene)
+**** Costo
+     Le risorse finanziare che si possono impegnare
+
+     Solitamente il cliente deve fornire la portata ed il tempo, mentre il fornitore deve fornire la qualità (che deve essere massima) e il costo (che deve essere commisurato ad ottenere la massima qualità).
+
+     Nell'XP cerca di garantire la qualità massima per una quantità di tempo, e si cerca di ottenere la portata massima per quel lasso di tempo.
+     Per cui il cliente deve avere una garanzia che il fornitore stia facendo il massimo per ottenere la portata massima e c'è una persona incaricata che farà parte del team che si occuperà di verificarlo.
+
+*** Principi
+**** XP
+     - feedback rapido
+     - presumere la semplicità
+     - design for change (il software si deve adattare agevolmente a nuove esigenze)
+     - accettare il cambiamento
+     - modifica incrementale
+     - lavoro di qualità (clima di lavoro sereno)
+
+**** Ingegneria Software "classica"
+     - separazione degli interessi (aspect o concerns)
+     - astrazione e modularità (non come qualità di sé per sé)
+     - anticipazione del cambiamento (design for change)
+     - generalità
+     - incrementalità
+     - rigore e formalità (in XP esiste ma potrebbe essere inteso come caso di test invece che come specifica in linguaggio naturale)
+
+     XP ha trovato un buon mix nell'Ingegneria del Software "classica"
+
+***** Presumere la semplicità vs Anticipare il cambiamento
+      - XP sembra dire di non pianificare per il futuro, per il riuso (infatti l'andamento è logaritmico)
+      - Boehm (1976) basandosi sullo studio di casi "reali" ipotizza una curva di tipo esponenziale per il costo di modifiche
+
+      Sono grafici qualitativi, ma dipendono sempre dal singolo progetto.
+
+*** Figure in gioco e responsabilità
+    Nelle metodologie agili il POV è dello sviluppatore
+**** Manager e/o cliente
+     In Scrum il cliente è il Product Owner (fa le veci del cliente e dovrebbe dare una risposta autoritativa ai dubbi).
+***** Ha responsabilità di decidere:
+      - la portata del progetto
+      - priorità tra funzionalità
+      - date dei rilasci
+
+***** Ha diritto di:
+      - sapere che cosa può essere fatto, con quali tempi e a quali costi
+      - vedere progressin el sistema, provati dal superamento di test da lui definiti
+      - cambiare idea, sostituire funzionalità e cambiare priorità
+
+**** Sviluppatore
+     Un'altra figura che si sovrappone allo sviluppatore è il `tracker` che misura e mette
+     in evidenza il progresso del progetto.
+     Al termine di un'iterazione si ha la retrospettiva.
+***** Ha responsabilità di decidere:
+      - stime dei tempi per le singole funzionalità
+      - conseguenze di scelte tecnologiche
+      - pianificazione dettagliata
+
+***** Ha diritto di:
+      - sapere cosa è necessario attraverso dei requisiti chiari (storie di uso) con priorità
+      - cambiare stime tempi con esperienza
+      - identificare e indicare le funzionalità pericolose
+      - produrre software di qualità
+
+
+*** L'approccio
+**** Planning game
+     - basato su storie scritte dall'utente: una versione semplificata ed informale degli Use Cases di UML.
+     - vengono determinate le funzionalità del prossimo rilascio, combinando priorità commerciali e valutazioni tecniche.
+
+     Il cliente prepara delle carte
+     - breve frase di descrizione
+     - caso di test che funge da test accettazione
+     - il valore di business che ha per lui
+
+     Gli sviluppatori stimano il tempo necessario
+     - ognuno dice la propria stima
+
+     Il manager sulla base di queste informazioni può decidere quali schede verranno implementate alla prossima iterazione
+
+***** Come si effettua una stima da parte del team
+      - le stime sono molto differenti (ore vs giorni)
+      -- è più facile che più teste facciano una stima migliore
+      -- il fatto che la stima venga fatta dagli sviluppatori li responsabilizza di più; però comporta più perdita di tempo
+      -- anchoring effect: l'uomo pensa molto in termini relativi, per cui se si parte da una stima molto alta, anche se poi si abbassa, si tenderà a fare una stima più alta di quanto si sarebbe fatto se si fosse partiti da una stima più bassa
+
+***** Stime agili: planning poker
+      - vengono presentate brevemente le carte
+      - il team può fare domande richiedere chiarimenti e discutere per chiarire assunzioni e rischi (non si può discutere di stime)
+      - ogni componente sceglie una carta del poker rappresentate la propria stima
+      -- unità di misura?
+      -- se il delta è troppo ampio vuol dire che la card non è molto chiara (c'è anche la card "non ne ho la minima idea")
+         [...] guardare le slide
+
+**** Team Estimation Game
+***** Prima fase: valutazione comparativa.
+      Va bene perché viene decisa dal team la comparativa, viene mitigato l'anchoring effect
+      - i developer si mettono in fila
+      - si fa una "pila" con le storie e si mette la prima carta al centro del tavolo
+      - il primo developer della fila prende una carta
+        [...] guardare le slide
+***** Seconda fase: .quantificare distanze
+      - ci si mette di nuovo in coda davanti al tavolo, il mazzo di carte questa volta è tipo quello del planning poker (ordinato e senza)
+
+      [...] guardare le slide
+
+***** Terza fase: scala assoluta
+      - si stima il tempo in ore/uomo
+        [...]
+
+**** Velocity
+     - capacità (osservata) di completare lavori da parte del team
+     - sostituisce la necessità di rimappare unità ideali in tempi assoluti
+     -- dopo la prima iterazione, il team dirà che può sviluppare tanti "punto" quanti ne ha fatti alla iterazione precedente
+
+     [...]

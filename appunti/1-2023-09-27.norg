@@ -1,0 +1,108 @@
+* Processi di produzione del sw
+
+** Principali problemi
+*** numero e tipo di persone coinvolte
+   -- il programmatore non è il cliente e questo crea problemi di comunicazione
+*** dimensione del software
+   -- milioni di linee di codice
+   -- migliaia di anni uomo (o mesi uomo, non è un'unità di misura facilmente modificabile)
+*** Software
+    - malleabilità porta a moltiplicarsi di versioni ed evoluzioni
+
+* Perché studiare un processo?
+** Convinzione che un buon processo produca un prodotto di qualità
+   [1] CMM
+
+** Quali sono le qualità a cui miriamo nel software
+   Valore per le persone (che lo usano)
+
+
+*** Che funzioni
+
+**** Fa quello che è stato chiesto
+
+***** Correttezza
+      - Requisiti (dell'utente): le necessità
+      - Specifiche (dall'analista): ciò che ho capito che mi è stato chiesto di fare
+
+****** Ma se mi è stato chiesto qualcosa di sbagliato o incompleto (ha senso quindi parlare di `correttezza`)?
+       `Requirements deficiences are the prime source of projects failures`
+       R. Glass' Law (L1)
+
+       Scrivere specifiche formali è difficile e costoso
+       Con le Reti di Petri 
+
+**** Che mi possa fidare
+
+***** Affidabilità
+      Tolleranza all'errore se non si può evitare (tipo un rilevatore di benzina che indica in condizioni perfette ti dice che ci sono 40km percorribili, ma è comunque accettabile che dopo 35km perché lo scopo è che non ti "lasci a piedi")
+
+**** Che non fa male
+
+***** Innocuità (Safety) / Robustezza
+
+*** Che sia bello
+**** Proprietà esterne e proprietà interne
+***** Interne
+****** Verificabilità
+      Pulito (facile dimostrare al cliente che il software fa quello che deve fare)
+
+***** Esterne
+****** Efficienza
+      Nell'uso di risorse
+      Classificazione (di non so cosa)
+      Soft - Firm - Hard
+
+****** Usabilità
+      Facile da usare (Usability engineering, libro).
+      `Usability is quantifiable`
+      Nielsen-Norman's Law (L26)
+
+*** Che mi faccia diventare ricco
+
+**** Manutenzione
+     (dopo che ho venduto il software)
+     Mi rende la manutenzione del software più semplice.
+     - correzioni errori (`Riparibilità`)
+     - estensione dei requisiti, nuove situazioni (`Evolvibilità`)
+     - non cambiano i requisiti ma che permettono di migliorare le altre qualità (`Perfettibilità`)
+
+     `A system that is used will be changed`
+     M. Lehman's Laws (L27)
+
+     `An evolving system increases its complexity unless work is done to reduce it`
+     M. Lehman's Laws (L28)
+
+
+**** Riusabilità
+     (di componenti)
+     Delle note:
+     - quanto è veramente riusabile? (Eventualmente da adattare)
+     - se il componente riutilizzato è stato già testato il risparmio è ulteriore
+     - il satellite europeo per colpa del software ereditato (nota negativa)
+
+     `Software reuse reduces cycle time and increases productivity and quality`
+     McIlroy's Law (L15)
+
+     Tendenzialmente è vero
+
+* Come deve essere un processo?
+  (deve funzionare, essere bello, farmi diventare ricco)
+
+** Robustezza
+   Resistere agli imprevisti
+   - cambiamenti di requisiti
+   - problemi manageriali
+   - problemi tecnici
+     ecc...
+
+** Produttività
+   Essere veloce
+
+** Tempismo
+   Cogliere l'attimo
+   Vaporware: occupare una fetta di mercato nel momento giusto anche se non si ha il software.
+
+* Da vedere in futuro
+  [1] CMM (Capability Maturity Model)
+  [2] Debito tecnico (Technical Debt, da metologie Agili): problema che conosco ma di cui decido di rimandare la risoluzione
